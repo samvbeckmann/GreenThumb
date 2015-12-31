@@ -1,5 +1,7 @@
 package com.qkninja.greenthumb.proxy;
 
+import com.qkninja.greenthumb.init.GreenThumbBlocks;
+import com.qkninja.greenthumb.init.GreenThumbItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -15,13 +17,13 @@ public class ClientProxy extends CommonProxy
     @Override
     public void preInit()
     {
-
+        // NOOP
     }
 
     @Override
     public void init()
     {
-        // NOOP
+        registerRenderers();
     }
 
     @Override
@@ -38,6 +40,7 @@ public class ClientProxy extends CommonProxy
 
     private void registerRenderers()
     {
-
+        GreenThumbBlocks.registerRenders();
+        GreenThumbItems.registerRenders();
     }
 }

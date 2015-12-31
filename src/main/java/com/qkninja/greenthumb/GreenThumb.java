@@ -1,6 +1,8 @@
 package com.qkninja.greenthumb;
 
 import com.qkninja.greenthumb.handler.ConfigurationHandler;
+import com.qkninja.greenthumb.init.GreenThumbBlocks;
+import com.qkninja.greenthumb.init.GreenThumbItems;
 import com.qkninja.greenthumb.proxy.CommonProxy;
 import com.qkninja.greenthumb.reference.Reference;
 import com.qkninja.greenthumb.utility.LogHelper;
@@ -33,9 +35,9 @@ public class GreenThumb
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
 
-//        ModItems.init();
-//
-//        ModBlocks.init();
+        GreenThumbItems.register();
+
+        GreenThumbBlocks.register();
 
         proxy.preInit();
 
@@ -50,7 +52,7 @@ public class GreenThumb
     {
         proxy.init();
 
-//        Recipes.init();
+//        Recipes.register();
 
         LogHelper.info("Initialization Complete!");
     }
