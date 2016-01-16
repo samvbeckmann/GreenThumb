@@ -3,6 +3,8 @@ package com.qkninja.greenthumb.block;
 import com.qkninja.greenthumb.creativetab.CreativeTabGreenThumb;
 import com.qkninja.greenthumb.reference.Textures;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,6 +14,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -41,12 +46,11 @@ public class BlockGreenThumb extends Block
         return String.format("tile.%s%s", Textures.RESOURCE_PREFIX, unwrapName(super.getUnlocalizedName()));
     }
 
-//    @Override
-//    @SideOnly(Side.CLIENT)
-//    public void registerBlockIcons(IIconRegister iconRegister) // TODO: update the rendering.
-//    {
-//        blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName()));
-//    }
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(
+                Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
     public String getUnwrappedUnlocalizedName()
     {

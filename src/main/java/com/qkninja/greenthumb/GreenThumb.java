@@ -7,7 +7,6 @@ import com.qkninja.greenthumb.proxy.CommonProxy;
 import com.qkninja.greenthumb.reference.Reference;
 import com.qkninja.greenthumb.utility.LogHelper;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

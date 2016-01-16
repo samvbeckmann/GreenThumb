@@ -2,10 +2,9 @@ package com.qkninja.greenthumb.init;
 
 import com.qkninja.greenthumb.item.*;
 import com.qkninja.greenthumb.reference.Reference;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Initializes all the items in the Network mod.
@@ -19,17 +18,12 @@ public class GreenThumbItems
 
     public static void register()
     {
-        GameRegistry.registerItem(crystalShard, /* Names.Items.ITEM_CORE */ crystalShard.getUnwrappedUnlocalizedName());
+        GameRegistry.registerItem(crystalShard, crystalShard.getUnwrappedUnlocalizedName());
     }
 
+    @SideOnly(Side.CLIENT)
     public static void registerRenders()
     {
-        ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-        registerRender(crystalShard, mesher);
-    }
-
-    private static void registerRender(ItemGreenThumb item, ItemModelMesher mesher)
-    {
-        mesher.register(item, 0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":" + item.getUnwrappedUnlocalizedName(), "inventory"));
+        crystalShard.initModel();
     }
 }

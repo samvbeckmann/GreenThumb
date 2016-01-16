@@ -2,8 +2,12 @@ package com.qkninja.greenthumb.item;
 
 import com.qkninja.greenthumb.creativetab.CreativeTabGreenThumb;
 import com.qkninja.greenthumb.reference.Reference;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Generic Item for Network Mod
@@ -30,16 +34,16 @@ public class ItemGreenThumb extends Item
         return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", unwrapName(super.getUnlocalizedName()));
     }
 
-//    @Override
-//    @SideOnly(Side.CLIENT)
-//    public void registerIcons(IIconRegister iconRegister) // TODO: Fix Rendering
-//    {
-//        itemIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName()));
-//    }
+    @SideOnly(Side.CLIENT)
+    public void initModel() // TODO: Fix Rendering
+    {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
     public String getUnwrappedUnlocalizedName ()
     {
-        return this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1);
+        String unlocalized = this.getUnlocalizedName();
+        return unlocalized.substring(unlocalized.indexOf(".") + 1);
     }
 
     private static String unwrapName(String unlocalizedName) // TODO: Move to helper class.

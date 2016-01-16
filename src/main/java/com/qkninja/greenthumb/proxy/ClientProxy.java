@@ -17,19 +17,19 @@ public class ClientProxy extends CommonProxy
     @Override
     public void preInit()
     {
-        // NOOP
+        registerRenderers();
     }
 
     @Override
     public void init()
     {
-        registerRenderers();
+        /* NOOP */
     }
 
     @Override
     public void postInit()
     {
-        // NOOP
+        /* NOOP */
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ClientProxy extends CommonProxy
 
     private void registerRenderers()
     {
-        GreenThumbBlocks.registerRenders();
         GreenThumbItems.registerRenders();
+        GreenThumbBlocks.registerRenders();
     }
 }

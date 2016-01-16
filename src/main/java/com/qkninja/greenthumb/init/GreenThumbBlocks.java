@@ -31,13 +31,6 @@ public final class GreenThumbBlocks
     @SideOnly(Side.CLIENT)
     public static void registerRenders()
     {
-        ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-        registerRender(GREENHOUSE_EDGE, mesher);
-    }
-
-    private static void registerRender(BlockGreenThumb block, ItemModelMesher mesher)
-    {
-        Item item = Item.getItemFromBlock(block); // TODO: Fix up this to not have to manipulate strings.
-        mesher.register(item, 0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":" + item.getUnlocalizedName().substring(5), "inventory"));
+        GREENHOUSE_EDGE.initModel();
     }
 }

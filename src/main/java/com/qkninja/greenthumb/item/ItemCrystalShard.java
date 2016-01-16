@@ -10,6 +10,6 @@ public class ItemCrystalShard extends ItemGreenThumb
     public ItemCrystalShard()
     {
         super();
-        this.setUnlocalizedName("crystalShard");
+        this.setUnlocalizedName("crystalShard"); // TODO: Move to name file
     }
 }

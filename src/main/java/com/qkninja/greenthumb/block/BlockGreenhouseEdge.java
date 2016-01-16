@@ -12,7 +12,7 @@ public class BlockGreenhouseEdge extends BlockGreenThumb
     public BlockGreenhouseEdge()
     {
         super(Material.glass);
-        this.setUnlocalizedName("greenhouse_edge");
+        this.setUnlocalizedName("greenhouseEdge");
         this.setHardness(0.5F);
     }
 }
