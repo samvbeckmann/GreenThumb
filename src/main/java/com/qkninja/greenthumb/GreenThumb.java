@@ -3,6 +3,8 @@ package com.qkninja.greenthumb;
 import com.qkninja.greenthumb.handler.ConfigurationHandler;
 import com.qkninja.greenthumb.init.GreenThumbBlocks;
 import com.qkninja.greenthumb.init.GreenThumbItems;
+import com.qkninja.greenthumb.init.GreenThumbTileEntities;
+import com.qkninja.greenthumb.init.Recipes;
 import com.qkninja.greenthumb.proxy.CommonProxy;
 import com.qkninja.greenthumb.reference.Reference;
 import com.qkninja.greenthumb.utility.LogHelper;
@@ -19,7 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author QKninja
  * @version 1.8.9-0.0.0
  */
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION /*, guiFactory = Reference.GUI_FACTORY_CLASS */)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION /*, guiFactory = Reference.GUI_FACTORY_CLASS */) // TODO: Add Configs in game.
 public class GreenThumb
 {
     @Mod.Instance(Reference.MOD_ID)
@@ -38,6 +40,8 @@ public class GreenThumb
 
         GreenThumbBlocks.register();
 
+        GreenThumbTileEntities.register();
+
         proxy.preInit();
 
 //        FMLInterModComms.sendMessage("Waila", "register", "com.qkninja.greenthumb.thirdparty.waila.Waila.onWailaCall");
@@ -51,7 +55,7 @@ public class GreenThumb
     {
         proxy.init();
 
-//        Recipes.register();
+        Recipes.register();
 
         LogHelper.info("Initialization Complete!");
     }

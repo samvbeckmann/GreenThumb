@@ -2,8 +2,10 @@ package com.qkninja.greenthumb.init;
 
 import com.qkninja.greenthumb.block.BlockGreenThumb;
 import com.qkninja.greenthumb.block.BlockGreenhouseEdge;
+import com.qkninja.greenthumb.block.growable.BlockPlantCoal;
 import com.qkninja.greenthumb.item.ItemGreenThumb;
 import com.qkninja.greenthumb.reference.Reference;
+import com.qkninja.greenthumb.tileentity.TileEntityGreenThumb;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -22,15 +24,19 @@ public final class GreenThumbBlocks
 {
 
     public static final BlockGreenThumb GREENHOUSE_EDGE = new BlockGreenhouseEdge();
+    public static final BlockGreenThumb PLANT_COAL = new BlockPlantCoal();
+
 
     public static void register()
     {
         GameRegistry.registerBlock(GREENHOUSE_EDGE, GREENHOUSE_EDGE.getUnwrappedUnlocalizedName());
+        GameRegistry.registerBlock(PLANT_COAL, PLANT_COAL.getUnwrappedUnlocalizedName());
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerRenders()
     {
         GREENHOUSE_EDGE.initModel();
+        PLANT_COAL.initModel();
     }
 }
