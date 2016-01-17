@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -26,6 +27,13 @@ public abstract class BlockPlant extends BlockGreenThumb implements ITileEntityP
         super(Material.plants);
         setStepSound(soundTypeGrass);
         setHardness(0.1F);
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return super.canPlaceBlockAt(worldIn, pos) &&
+                worldIn.getBlockState(pos.down()).getBlock() == Blocks.farmland;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.qkninja.greenthumb.block.growable;
 
 import com.qkninja.greenthumb.tileentity.growable.plant.TileEntityPlantCoal;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -20,15 +19,6 @@ public class BlockPlantCoal extends BlockPlant
         super();
         setUnlocalizedName("plantCoal");
     }
-
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        return super.canPlaceBlockAt(worldIn, pos) &&
-                worldIn.getBlockState(pos.down()).getBlock() == Blocks.farmland;
-    }
-
-
 
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)

@@ -13,4 +13,11 @@ public class TileEntityPlantCoal extends GrowablePlant
     {
         super(yield, cycleLength);
     }
+
+    @Override
+    public boolean canGrow()
+    {
+        return super.canGrow() &&
+                getWorld().getLightFromNeighbors(getPos()) == 0; // Requires light level zero to grow.
+    }
 }
